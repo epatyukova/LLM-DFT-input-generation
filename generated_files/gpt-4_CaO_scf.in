@@ -1,0 +1,32 @@
+&CONTROL
+  calculation = 'scf',
+  prefix = 'CaO',
+  pseudo_dir = './',
+  outdir = './',
+  verbosity = 'high',
+/
+
+&SYSTEM
+  ibrav = 1,
+  celldm(1) = 10.0,
+  nat = 2,
+  ntyp = 2,
+  ecutwfc = 30.0,
+  ecutrho = 240.0,
+/
+
+&ELECTRONS
+  conv_thr = 1.0d-8,
+  mixing_beta = 0.7,
+/
+
+ATOMIC_SPECIES
+  Ca  40.08  Ca.pbe-n-kjpaw_psl.1.0.0.UPF
+  O   15.999 O.pbe-n-kjpaw_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS (angstrom)
+  Ca  0.0  0.0  0.0
+  O   1.5  0.0  0.0
+
+K_POINTS (automatic)
+  1 1 1 0 0 0

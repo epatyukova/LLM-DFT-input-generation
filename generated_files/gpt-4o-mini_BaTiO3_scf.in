@@ -1,0 +1,41 @@
+&CONTROL
+    calculation = 'scf',
+    prefix = 'BaTiO3',
+    outdir = './tmp/',
+    pseudo_dir = './pseudos/',
+    tprnfor = .true.,
+    tprnenergy = .true.,
+    verbosity = 'high',
+/
+
+&SYSTEM
+    ibrav = 1, ! Simple cubic
+    celldm(1) = 3.905, ! Lattice parameter in Bohr
+    nat = 5, ! Number of atoms
+    ntyp = 3, ! Number of types of atoms
+    ecutwfc = 40.0, ! Kinetic energy cutoff
+    ecutrho = 400.0, ! Charge density cutoff
+    occupations = 'smearing',
+    smearing = 'gaussian',
+    degauss = 0.01,
+/
+
+&ELECTRONS
+    conv_thr = 1.0d-8,
+    mixing_beta = 0.7,
+/
+
+ATOMIC_SPECIES
+    Ba  137.33  Ba.pbe-n-kjpaw_psl.1.0.0.UPF
+    Ti  47.87   Ti.pbe-n-kjpaw_psl.1.0.0.UPF
+    O   16.00   O.pbe-n-kjpaw_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS (crystal)
+    Ba  0.000000  0.000000  0.000000
+    Ti  0.500000  0.500000  0.500000
+    O   0.500000  0.500000  0.000000
+    O   0.500000  0.000000  0.500000
+    O   0.000000  0.500000  0.500000
+
+K_POINTS (automatic)
+    4 4 4 0 0 0

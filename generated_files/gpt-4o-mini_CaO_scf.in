@@ -1,0 +1,37 @@
+&CONTROL
+    calculation = 'scf',
+    prefix = 'CaO',
+    outdir = './tmp/',
+    pseudo_dir = './pseudos/',
+    tprnfor = .true.,
+    tprnenergy = .true.,
+    verbosity = 'high',
+/
+
+&SYSTEM
+    ibrav = 1,               ! Simple cubic
+    celldm(1) = 4.8,         ! Lattice parameter in Bohr
+    nat = 2,                 ! Number of atoms
+    ntyp = 2,                ! Number of types of atoms
+    ecutwfc = 30.0,          ! Wavefunction cutoff energy (Ry)
+    ecutrho = 300.0,         ! Charge density cutoff energy (Ry)
+    occupations = 'smearing',
+    smearing = 'gaussian',
+    degauss = 0.01,
+/
+
+&ELECTRONS
+    conv_thr = 1.0d-8,
+    mixing_beta = 0.7,
+/
+
+ATOMIC_SPECIES
+    Ca  40.078  Ca.pz-vbc.UPF
+    O   15.999  O.pz-vbc.UPF
+
+ATOMIC_POSITIONS (angstrom)
+    Ca  0.0  0.0  0.0
+    O   0.5  0.5  0.5
+
+K_POINTS (automatic)
+    4 4 4 0 0 0

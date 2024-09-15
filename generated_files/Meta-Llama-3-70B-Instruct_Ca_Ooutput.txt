@@ -1,0 +1,63 @@
+Here is a sample input file for a single point energy calculation of Calcium Oxide (CaO) using Quantum Espresso:
+
+```
+&control
+  calculation ='scf'
+  prefix = 'cao'
+  pseudo_dir = './pseudo'
+  outdir = './outdir'
+  verbosity = 'high'
+/
+
+&system
+  ibrav = 0
+  celldm(1) = 4.0
+  celldm(2) = 4.0
+  celldm(3) = 4.0
+  celldm(4) = 90.0
+  celldm(5) = 90.0
+  celldm(6) = 120.0
+/
+
+&electrons
+  electron_maxstep = 100
+  electron_conv_thr = 1.0E-6
+/
+
+&ions
+  ion_move = 'cg'
+  ion_damp = 0.5
+  ion_steps = 100
+/
+
+&cell
+  no_pulay =.true.
+/
+
+&pot
+  pot_file = 'POSCAR'
+/
+
+&pseudo
+  pseudo_dir = './pseudo'
+  ca.pz-vbc.UPF
+  o.pz-vbc.UPF
+/
+
+ATOMIC_POSITIONS crystal
+Ca 0.000000000000 0.000000000000 0.000000000000
+O  0.666666666667 0.666666666667 0.666666666667
+```
+
+Let me explain what each section does:
+
+* The `&control` section sets the calculation type to a self-consistent field (SCF) calculation, specifies the output file prefix, and sets the verbosity level to high.
+* The `&system` section sets the crystal structure to a simple cubic lattice with a cell size of 4.0 Å, and sets the lattice parameters to match the experimental values for CaO.
+* The `&electrons` section sets the maximum number of electronic steps to 100 and the convergence threshold for the electronic density to 1.0E-6.
+* The `&ions` section sets the ion movement algorithm to the conjugate gradient method and sets the ion damping factor to 0.5.
+* The `&cell` section sets the Pulay mixing scheme to false.
+* The `&pot` section specifies the input file for the atomic positions, which is called `POSCAR`.
+* The `&pseudo` section specifies the pseudopotential files for Ca and O, which are located in the `./pseudo` directory.
+* The `ATOMIC_POSITIONS` section specifies the atomic positions of the Ca and O atoms in the crystal lattice.
+
+Note that you will need to create the pseudopotential files (`ca.pz-vbc.UPF` and `o.pz-vbc.UPF`) and the `POSCAR` file (which contains the atomic positions) before running the calculation.

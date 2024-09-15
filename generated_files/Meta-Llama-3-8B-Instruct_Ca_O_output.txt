@@ -1,0 +1,53 @@
+Here is a sample input file for a single point energy calculation on CaO using Quantum Espresso:
+```
+&CONTROL
+  calculation ='scf'
+  prefix = 'cao'
+  pseudo_dir = './'
+  verbosity = 'high'
+/
+
+&SYSTEM
+  ibrav = 2
+  nat = 2
+  ntyp = 2
+  ecutwfc = 30
+  ecutrho = 300
+  occupations ='smearing'
+  smearing = 'gauss'
+  degauss = 0.01
+/
+
+&ELECTRONS
+  electron_maxstep = 200
+  electron_conv_thr = 1.0d-6
+/
+
+&IONS
+  ion_positions = 'auto'
+/
+
+ATOMIC_POSITIONS (angs)
+  Ca  0.0  0.0  0.0
+  O   0.5  0.5  0.0
+
+CELL_PARAMETERS (angs)
+  3.800000  0.000000  0.000000
+  0.000000  3.800000  0.000000
+  0.000000  0.000000  3.800000
+
+&PAO
+  PAO_GGA
+/
+```
+Let me explain what each section does:
+
+* `&CONTROL`: This section specifies the calculation type, prefix for the output files, and verbosity level.
+* `&SYSTEM`: This section specifies the crystal structure, number of atoms and types, and plane wave cutoff energies.
+* `&ELECTRONS`: This section specifies the electron convergence criteria and maximum number of steps.
+* `&IONS`: This section specifies the ion positions, which in this case are set to 'auto' to use the default positions.
+* `ATOMIC_POSITIONS`: This section specifies the atomic positions in angstroms.
+* `CELL_PARAMETERS`: This section specifies the cell parameters in angstroms.
+* `&PAO`: This section specifies the projector augmented wave (PAW) method.
+
+Note that you may need to adjust the parameters in the input file depending on your specific system and calculation requirements. Additionally, you will need to have the necessary pseudopotentials (PPs) for Ca and O in the same directory as the input file.

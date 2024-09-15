@@ -1,0 +1,62 @@
+Here is a sample input file for a single point energy calculation on BaTiO3 using Quantum Espresso:
+```
+&control
+  calculation ='scf'
+  prefix = 'BaTiO3'
+  pseudo_dir = '/path/to/pseudopotentials'
+  outdir = './outdir'
+  verbosity = 'high'
+  tstress =.true.
+  tprnfor =.true.
+/
+
+&system
+  ibrav = 0
+  celldm(1) = 3.995  # lattice parameter in Angstrom
+  celldm(2) = 3.995
+  celldm(3) = 3.995
+  nat = 3
+  ntyp = 3
+  ecutwfc = 30  # plane wave cutoff in Ry
+  ecutrho = 120  # charge density cutoff in Ry
+/
+
+&electrons
+  electron_maxstep = 100
+  electron_mixing_beta = 0.5
+  electron_diis_window = 8
+/
+
+&ions
+  ion_dynamics ='verlet'
+  ion_positions = 'ba 0.0 0.0 0.0; ti 0.5 0.5 0.5; o 0.0 0.5 0.5'
+/
+
+&pseudo
+  PAW_PZ = 'Ba_Ba.pz'
+  PAW_PZ = 'Ti_Ti.pz'
+  PAW_PZ = 'O_O.pz'
+/
+
+ATOMIC_POSITIONS crystal
+  Ba  0.0 0.0 0.0
+  Ti  0.5 0.5 0.5
+  O   0.0 0.5 0.5
+```
+This input file assumes that you have the following pseudopotentials in the `/path/to/pseudopotentials` directory:
+
+* `Ba_Ba.pz` for Barium
+* `Ti_Ti.pz` for Titanium
+* `O_O.pz` for Oxygen
+
+The lattice parameters are set to match the experimental values for BaTiO3. The `ecutwfc` and `ecutrho` values are set to reasonable values for a single point energy calculation. The `electron_maxstep` and `electron_mixing_beta` values are set to default values, but you may need to adjust them depending on the convergence of your calculation.
+
+Note that you will need to create the pseudopotentials for Ba, Ti, and O atoms and place them in the specified directory. You can use the `pw.x` code to generate the pseudopotentials from a set of atomic wavefunctions and densities.
+
+Also, you can adjust the `ion_positions` line to specify the initial positions of the ions. In this case, the positions are set to the ideal positions in the perovskite structure.
+
+You can run the calculation by executing the following command:
+```
+pw.x -in BaTiO3.in -outdir outdir
+```
+This will generate the output files in the `outdir` directory.
