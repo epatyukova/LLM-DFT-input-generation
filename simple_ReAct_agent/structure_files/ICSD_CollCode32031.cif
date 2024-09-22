@@ -1,0 +1,83 @@
+
+#(C) 2024 by FIZ Karlsruhe - Leibniz Institute for Information Infrastructure.  All rights reserved.
+data_32031-ICSD
+_database_code_ICSD 32031
+_audit_creation_date 1980-01-01
+_chemical_name_common 'Rubidium silver gold iodide (2/1/3/8)'
+_chemical_formula_structural 'Rb2 Ag Au3 I8'
+_chemical_formula_sum 'Ag1 Au3 I8 Rb2'
+_chemical_name_structure_type Rb3Au3Cl8
+_exptl_crystal_density_diffrn 6.09
+_citation_title
+
+;
+Darstellung und Kristallstruktur von Rb2 Ag Au3 I8, ein Beitrag zur
+Kristallchemie des einwertigen Silbers und Golds
+;
+loop_
+_citation_id
+_citation_journal_full
+_citation_year
+_citation_journal_volume
+_citation_page_first
+_citation_page_last
+_citation_journal_id_ASTM
+primary
+
+;
+Zeitschrift fuer Naturforschung, Teil B: Anorganische Chemie, Organische
+Chemie
+; 1979 34 952 956 ZNBAD2
+loop_
+_citation_author_citation_id
+_citation_author_name
+primary 'Werner, W.'
+primary 'Straehle, J.'
+_cell_length_a 13.324(4)
+_cell_length_b 7.480(2)
+_cell_length_c 21.029(6)
+_cell_angle_alpha 90.
+_cell_angle_beta 101.08(2)
+_cell_angle_gamma 90.
+_cell_volume 2056.76
+_cell_formula_units_Z 4
+_space_group_name_H-M_alt 'C 1 2/c 1'
+_space_group_IT_number 15
+loop_
+_space_group_symop_id
+_space_group_symop_operation_xyz
+1 'x, -y, z+1/2'
+2 '-x, -y, -z'
+3 '-x, y, -z+1/2'
+4 'x, y, z'
+5 'x+1/2, -y+1/2, z+1/2'
+6 '-x+1/2, -y+1/2, -z'
+7 '-x+1/2, y+1/2, -z+1/2'
+8 'x+1/2, y+1/2, z'
+loop_
+_atom_type_symbol
+_atom_type_oxidation_number
+Au3+ 3
+Au1+ 1
+Ag1+ 1
+Rb1+ 1
+I1- -1
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_symmetry_multiplicity
+_atom_site_Wyckoff_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_B_iso_or_equiv
+_atom_site_occupancy
+Au1 Au3+ 4 a 0 0 0 1.6 1.
+Au2 Au1+ 8 f 0.4012(2) 0.0008(3) 0.2000(1) 2.7 1.
+Ag1 Ag1+ 4 e 0 0.0212(10) 0.25 4.4 1.
+Rb1 Rb1+ 8 f 0.2961(4) 0.0306(8) 0.4029(3) 3.5 1.
+I1 I1- 8 f 0.1914(2) 0.0342(4) 0.0609(2) 2.5 1.
+I2 I1- 8 f 0.0489(2) -0.2808(4) -0.0632(2) 2.6 1.
+I3 I1- 8 f 0.4642(3) 0.2704(4) 0.1442(2) 2.8 1.
+I4 I1- 8 f 0.3248(3) -0.2632(4) 0.2524(2) 2.7 1.
+#End of TTdata_32031-ICSD
