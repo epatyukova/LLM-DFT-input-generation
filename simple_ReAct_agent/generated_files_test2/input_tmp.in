@@ -1,0 +1,36 @@
+&CONTROL
+    calculation = 'scf',
+    prefix = 'NaCl',
+    pseudo_dir = 'pseudos/SSSP_1.3.0_PBE_efficiency/',
+    outdir = './tmp',
+    tprnfor = .true.,
+    tprncur = .true.,
+/
+&SYSTEM
+    ibrav = 2,
+    a = 5.6338,
+    b = 5.6338,
+    c = 5.6338,
+    nat = 8,
+    ntyp = 2,
+    ecutwfc = 30.0,
+    ecutrho = 240.0,
+/
+&ELECTRONS
+    conv_thr = 1.0d-8,
+    mixing_beta = 0.7,
+/
+ATOMIC_SPECIES
+    Na 22.989769 cl_pbe_v1.4.uspp.F.UPF
+    Cl 35.453    na_pbe_v1.5.uspp.F.UPF
+ATOMIC_POSITIONS (angstrom)
+    Na 0.0 0.0 0.0
+    Na -1.7248537842590896e-16 2.8169 2.8169
+    Na 2.8169 0.0 2.8169
+    Na 2.8169 2.8169 3.449707568518179e-16
+    Cl 2.8169 2.8169 2.8169000000000004
+    Cl 2.8169 0.0 1.7248537842590896e-16
+    Cl -1.7248537842590896e-16 2.8169 1.7248537842590896e-16
+    Cl 0.0 0.0 2.8169
+K_POINTS automatic
+    4 4 4 0 0 0

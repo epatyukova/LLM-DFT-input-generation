@@ -1,0 +1,78 @@
+Can you generate the Quantum Espresso input file for compound B39 C6 for energy calculation             for PBE functional and efficiency mode?             The name of the parent folder with pseudopotentials is pseudos.            Determine the list of pseudopotential files.            The directory with cutoffs is pseudo_cutoffs. Read the structure file structure_files/ICSD_CollCode446.cif for atomic positions and unit cell vectors.            Choose a conventional unit cell if False is False, and convert it to primitive cell if False is True.             Determine the path to the folder with the correct pseudopotentials.            Get the list of names of files with pseudopotentials for the compound.            Check that the energy cutoff and density cutoff are not larger than the maximum cutoff values             for pseudopotentials used.
+
+B13 C2
+B 1.3719156000000008 -0.7920758409654469 4.336281600000002
+B -1.3719156000000001 -0.7920758409654469 4.336281600000001
+B 3.842567153355958e-16 1.584151681930894 4.336281600000002
+B -1.3719156000000003 0.7920758409654474 7.762718399999998
+B 1.3719156000000006 0.7920758409654469 7.762718399999999
+B 3.928994019020138e-16 -1.5841516819308938 7.762718399999999
+B 0.9050598000000009 -0.5225365191627092 1.376866200000003
+B -0.9050598000000006 -0.5225365191627092 1.376866200000003
+B 3.861105338232029e-16 1.0450730383254188 1.3768662000000025
+B -0.9050598000000012 0.5225365191627099 10.7221338
+B 0.9050598000000015 0.5225365191627096 10.7221338
+B 4.305912071345119e-16 -1.045073038325418 10.7221338
+B -6.23723295234413e-16 -3.601068124034287e-16 6.0495
+C 3.412543136960266e-16 9.241772760026454e-17 7.473552300000002
+C 5.469241060040986e-16 4.626937847123137e-16 4.625447699999998
+
+-1.496950711536253e-17 3.2435538123073173 4.0329999999999995
+2.809 -1.6217769061536587 4.0329999999999995
+-2.809 -1.6217769061536587 4.0329999999999995
+
+{"max_ecutwfc": 35.0, "max_ecutrho": 280.0}
+["C.pbe-n-kjpaw_psl.1.0.0.UPF", "b_pbe_v1.4.uspp.F.UPF"]
+pseudos/SSSP_1.3.0_PBE_efficiency/
+Here is the generated Quantum Espresso input file for the compound B39 C6 using the PBE functional and efficiency mode, with the structure converted to the primitive cell:
+
+```
+&control
+    calculation = 'scf'
+    prefix = 'B39C6'
+    outdir = './out'
+    pseudo_dir = 'pseudos/SSSP_1.3.0_PBE_efficiency/'
+/
+&system
+    ibrav = 0
+    nat = 14
+    ntyp = 2
+    ecutwfc = 35.0
+    ecutrho = 280.0
+/
+&electrons
+    conv_thr = 1.0d-8
+    mixing_beta = 0.7
+/
+ATOMIC_SPECIES
+    B 10.811 B_pbe_v1.4.uspp.F.UPF
+    C 12.011 C.pbe-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS angstrom
+    B 1.3719156 -0.7920758409654469 4.336281600000002
+    B -1.3719156 -0.7920758409654469 4.336281600000001
+    B 3.842567153355958e-16 1.584151681930894 4.336281600000002
+    B -1.3719156 0.7920758409654474 7.762718399999998
+    B 1.3719156 0.7920758409654469 7.762718399999999
+    B 3.928994019020138e-16 -1.5841516819308938 7.762718399999999
+    B 0.9050598 -0.5225365191627092 1.376866200000003
+    B -0.9050598 -0.5225365191627092 1.376866200000003
+    B 3.861105338232029e-16 1.0450730383254188 1.3768662000000025
+    B -0.9050598 0.5225365191627099 10.7221338
+    B 0.9050598 0.5225365191627096 10.7221338
+    B 4.305912071345119e-16 -1.045073038325418 10.7221338
+    B -6.23723295234413e-16 -3.601068124034287e-16 6.0495
+    C 3.412543136960266e-16 9.241772760026454e-17 7.473552300000002
+    C 5.469241060040986e-16 4.626937847123137e-16 4.625447699999998
+K_POINTS automatic
+    4 4 4 0 0 0
+CELL_PARAMETERS angstrom
+    -1.496950711536253e-17 3.2435538123073173 4.0329999999999995
+    2.809 -1.6217769061536587 4.0329999999999995
+    -2.809 -1.6217769061536587 4.0329999999999995
+```
+
+Key points:
+- The input file uses the PBE functional and efficiency mode.
+- The pseudopotentials are taken from the directory `pseudos/SSSP_1.3.0_PBE_efficiency/`.
+- The energy cutoff (`ecutwfc`) and density cutoff (`ecutrho`) are set to the maximum values allowed by the pseudopotentials, which are 35.0 Ry and 280.0 Ry, respectively.
+- The atomic positions and cell vectors are converted to primitive form as requested.

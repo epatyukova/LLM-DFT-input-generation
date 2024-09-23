@@ -1,0 +1,66 @@
+Can you generate the Quantum Espresso input file for compound Fe4 B4 for energy calculation             for PBE functional and efficiency mode?             The name of the parent folder with pseudopotentials is pseudos.            Determine the list of pseudopotential files.            The directory with cutoffs is pseudo_cutoffs. Read the structure file structure_files/ICSD_CollCode11084.cif for atomic positions and unit cell vectors.            Choose a conventional unit cell if False is False, and convert it to primitive cell if False is True.             Determine the path to the folder with the correct pseudopotentials.            Get the list of names of files with pseudopotentials for the compound.            Check that the energy cutoff and density cutoff are not larger than the maximum cutoff values             for pseudopotentials used.
+
+Fe4 B4
+Fe 0.7370614999999999 1.5431366724799997 3.72535459672
+Fe 0.7370615 0.48666532751999986 0.9743505967199999
+Fe 2.2111845 2.5164673275199996 1.7766534032800005
+Fe 2.2111845 3.5729386724799994 4.52765740328
+B 0.7370614999999998 3.5964031836 2.9507268904000004
+B 0.7370614999999999 2.493002816399999 0.19972289040000019
+B 2.2111845 0.4632008163999994 2.5512811096
+B 2.2111845 1.5666011836000002 5.3022851096000005
+
+2.948246 0.0 1.8052800134994938e-16
+-2.4857905222028956e-16 4.059603999999999 2.4857905222028956e-16
+0.0 0.0 5.502008
+
+pseudos/SSSP_1.3.0_PBE_efficiency/
+["Fe.pbe-spn-kjpaw_psl.0.2.1.UPF", "b_pbe_v1.4.uspp.F.UPF"]
+{"max_ecutwfc": 35.0, "max_ecutrho": 280.0}
+Based on the provided information, here's the Quantum Espresso input file for a single point energy calculation of compound Fe4 B4 using the PBE functional and efficiency mode. 
+
+```plaintext
+&control
+    calculation = 'scf'
+    prefix = 'Fe4B4'
+    pseudo_dir = 'pseudos/SSSP_1.3.0_PBE_efficiency/'
+    outdir = './output/'
+/
+
+&system
+    ibrav = 0
+    nat = 8
+    ntyp = 2
+    ecutwfc = 35.0
+    ecutrho = 280.0
+/
+
+&electrons
+    mixing_beta = 0.7
+    conv_thr = 1.0d-8
+/
+
+ATOMIC_SPECIES
+    Fe  55.845  Fe.pbe-spn-kjpaw_psl.0.2.1.UPF
+    B   10.81   b_pbe_v1.4.uspp.F.UPF
+
+CELL_PARAMETERS angstrom
+    2.948246 0.0 1.8052800134994938e-16
+    -2.4857905222028956e-16 4.059603999999999 2.4857905222028956e-16
+    0.0 0.0 5.502008
+
+ATOMIC_POSITIONS angstrom
+    Fe 0.7370614999999999 1.5431366724799997 3.72535459672
+    Fe 0.7370615 0.48666532751999986 0.9743505967199999
+    Fe 2.2111845 2.5164673275199996 1.7766534032800005
+    Fe 2.2111845 3.5729386724799994 4.52765740328
+    B 0.7370614999999998 3.5964031836 2.9507268904000004
+    B 0.7370614999999999 2.493002816399999 0.19972289040000019
+    B 2.2111845 0.4632008163999994 2.5512811096
+    B 2.2111845 1.5666011836000002 5.3022851096000005
+
+K_POINTS automatic
+    4 4 4 0 0 0
+```
+
+This input file uses the maximum allowed cutoff values for the pseudopotentials used (35.0 Ry for wave function and 280.0 Ry for charge density). The atomic positions and cell parameters are based on the primitive cell of the given CIF file.

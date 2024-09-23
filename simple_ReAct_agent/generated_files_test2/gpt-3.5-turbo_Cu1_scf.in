@@ -1,0 +1,24 @@
+&control
+    calculation = 'scf'
+    prefix = 'Cu1'
+    pseudo_dir = 'pseudos/SSSP_1.3.0_PBE_efficiency/'
+    outdir = './out'
+/
+&system
+    ibrav = 0
+    nat = 4
+    ntyp = 1
+    ecutwfc = 90.0
+    ecutrho = 720.0
+/
+&electrons
+/
+ATOMIC_SPECIES
+    Cu 63.546 Cu.paw.z_11.ld1.psl.v1.0.0-low.upf
+ATOMIC_POSITIONS {angstrom}
+    Cu 0.0 0.0 0.0
+    Cu -1.1004063813738542e-16 1.7971 1.7971
+    Cu 1.7971 0.0 1.7971
+    Cu 1.7971 1.7971 2.2008127627477083e-16
+K_POINTS {automatic}
+    6 6 6 0 0 0

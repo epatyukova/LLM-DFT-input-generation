@@ -1,0 +1,37 @@
+&CONTROL
+    calculation = 'scf',
+    prefix = 'Si2',
+    outdir = './tmp/',
+    pseudo_dir = 'pseudos/SSSP_1.3.0_PBE_efficiency/',
+    tprnfor = .true.,
+    tprnenergy = .true.,
+/
+
+&SYSTEM
+    ibrav = 2, ! cubic
+    a = 5.43053,
+    nat = 8,
+    ntyp = 1,
+    ecutwfc = 30.0, ! This should be <= max_ecutwfc
+    ecutrho = 240.0, ! This should be <= max_ecutrho
+/
+
+&ELECTRONS
+    conv_thr = 1.0d-8,
+/
+
+ATOMIC_SPECIES
+Si 28.0855 Si.pbe-n-rrkjus_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS (angstrom)
+Si 1.3576325 1.3576325 1.3576325
+Si 0.0 0.0 0.0
+Si 1.3576325 4.0728975 4.0728975
+Si 0.0 2.715265 2.715265
+Si 4.0728975 1.3576325 4.0728975
+Si 2.715265 0.0 2.715265
+Si 4.0728975 4.0728975 1.3576325
+Si 2.715265 2.715265 0.0
+
+K_POINTS automatic
+4 4 4 1 1 1
