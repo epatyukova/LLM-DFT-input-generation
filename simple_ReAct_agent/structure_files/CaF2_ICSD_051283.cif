@@ -1,0 +1,79 @@
+
+#(C) 2024 by FIZ Karlsruhe - Leibniz Institute for Information Infrastructure.  All rights reserved.
+data_51283-ICSD
+_database_code_ICSD 51283
+_audit_creation_date 2002-04-01
+_chemical_name_common 'Calcium fluoride'
+_chemical_formula_structural 'Ca F2'
+_chemical_formula_sum 'Ca1 F2'
+_chemical_name_structure_type Cotunnite#PbCl2
+_exptl_crystal_density_diffrn 3.4
+_citation_title
+'Crystal structure and bonding in the high-pressure form of fluorite (Ca F2)'
+loop_
+_citation_id
+_citation_journal_full
+_citation_year
+_citation_journal_volume
+_citation_page_first
+_citation_page_last
+_citation_journal_id_ASTM
+primary 'Journal of Physics and Chemistry of Solids' 2001 62 1117 1122 JPCSAW
+loop_
+_citation_author_citation_id
+_citation_author_name
+primary 'Morris, E.'
+primary 'Groy, T.'
+primary 'Leinenweber, K.'
+_cell_length_a 6.018(2)
+_cell_length_b 3.614(1)
+_cell_length_c 7.023(2)
+_cell_angle_alpha 90.
+_cell_angle_beta 90.
+_cell_angle_gamma 90.
+_cell_volume 152.74
+_cell_formula_units_Z 4
+_space_group_name_H-M_alt 'P n m a'
+_space_group_IT_number 62
+loop_
+_space_group_symop_id
+_space_group_symop_operation_xyz
+1 'x+1/2, y, -z+1/2'
+2 'x, -y+1/2, z'
+3 '-x+1/2, y+1/2, z+1/2'
+4 '-x, -y, -z'
+5 '-x+1/2, -y, z+1/2'
+6 '-x, y+1/2, -z'
+7 'x+1/2, -y+1/2, -z+1/2'
+8 'x, y, z'
+loop_
+_atom_type_symbol
+_atom_type_oxidation_number
+Ca2+ 2
+F1- -1
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_symmetry_multiplicity
+_atom_site_Wyckoff_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_B_iso_or_equiv
+_atom_site_occupancy
+Ca1 Ca2+ 4 c 0.2539(1) 0.25 0.1094(1) . 1.
+F1 F1- 4 c 0.8595(3) 0.25 0.0731(2) . 1.
+F2 F1- 4 c 0.4780(3) 0.25 0.8344(3) . 1.
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_type_symbol
+_atom_site_aniso_beta_11
+_atom_site_aniso_beta_22
+_atom_site_aniso_beta_33
+_atom_site_aniso_beta_12
+_atom_site_aniso_beta_13
+_atom_site_aniso_beta_23
+Ca1 Ca2+ 0.0133(6) 0.0138(6) 0.0164(6) 0 -0.0003(2) 0
+F1 F1- 0.015(1) 0.0136(10) 0.0168(9) 0 -0.0010(8) 0
+F2 F1- 0.0203(10) 0.0222(12) 0.0238(11) 0 0.0036(8) 0
+#End of TTdata_51283-ICSD
