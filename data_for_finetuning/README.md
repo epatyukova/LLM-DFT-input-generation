@@ -1,0 +1,1 @@
+This folder contains Quantum Espresso input files extracted from aiida archives from this repository https://archive.materialscloud.org/record/2023.81 described in the paper https://arxiv.org/abs/2305.17274
