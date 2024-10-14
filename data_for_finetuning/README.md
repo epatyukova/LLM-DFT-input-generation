@@ -5,3 +5,5 @@ Unaries contain input files with unaries (Li, B, C, etc with different structure
 Oxides contain input files of oxides M_xO_y with different stoichiometries (x,y) (also not necessarily observed or corresponding to known oxidation states) (4621 files)
 
 There is also a python notebook used to extract data from aiida archive  
+
+Instruction-dataset-generation notebook allows formatting the data in the 'input'-'output' format to finetune the TinyLlama model (the fine-tuning script using the whole set of weights fine-tuning, without any peft techniques is availible in their repo https://github.com/jzhang38/TinyLlama/blob/main/sft/finetune.py)
