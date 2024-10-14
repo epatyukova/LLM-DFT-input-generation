@@ -6,4 +6,4 @@ Oxides contain input files of oxides M_xO_y with different stoichiometries (x,y)
 
 There is also a python notebook used to extract data from aiida archive  
 
-Instruction-dataset-generation notebook allows formatting the data in the 'input'-'output' format to finetune the TinyLlama model (the fine-tuning script using the whole set of weights fine-tuning, without any peft techniques is availible in their repo https://github.com/jzhang38/TinyLlama/blob/main/sft/finetune.py)
+Instruction-dataset-generation notebook allows formatting the data in the 'input'-'output' format to finetune the TinyLlama model (the fine-tuning script using the whole set of weights fine-tuning, without any peft techniques is availible in their repo https://github.com/jzhang38/TinyLlama/blob/main/sft/finetune.py). Before using, need not to forget to estimate statistics of the tokenised input/output sequences in order to correctly specify training parameters)
