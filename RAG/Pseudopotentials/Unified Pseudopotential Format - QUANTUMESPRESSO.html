@@ -1,0 +1,685 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Unified Pseudopotential Format - QUANTUMESPRESSO</title>
+    <meta name="generator" content="GravCMS" />
+<meta name="description" content="Grav is an easy to use, yet powerful, open source flat-file CMS" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="robots" content="follow, all" />
+<meta name="google-site-verification" content="g4CG61y_kLfkqAsfUPkF2MefchgN00GozvDUZMeK4z8" />        <link rel="canonical" href="https://pseudopotentials.quantum-espresso.org/home/unified-pseudopotential-format" />
+
+                                                    
+                                
+        <link href="/user/themes/quantum/css/style.css" type="text/css" rel="stylesheet">
+<link href="/user/themes/quantum/css/style-red.css" type="text/css" rel="stylesheet">
+<link href="/user/themes/quantum/css/superfish.css" type="text/css" rel="stylesheet">
+<link href="/user/themes/quantum/css/bootstrap.css" type="text/css" rel="stylesheet">
+<link href="/user/themes/quantum/css/prettyPhoto.css" type="text/css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:300" type="text/css" rel="stylesheet">
+<link href="/user/plugins/markdown-notices/assets/notices.css" type="text/css" rel="stylesheet">
+<link href="/user/plugins/form/assets/form-styles.css" type="text/css" rel="stylesheet">
+<link href="/user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet">
+<link href="/user/plugins/login/css/login.css" type="text/css" rel="stylesheet">
+
+
+                                                    
+        
+        
+
+        <script src="/user/themes/quantum/js/jquery.js"></script>
+<script src="/user/plugins/mathjax/assets/js/mathjax.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/user/themes/quantum/js/jquery.cycle.all.js"></script>
+<script src="/user/themes/quantum/js/custom.js"></script>
+<script src="/user/themes/quantum/js/superfish.js"></script>
+<script src="/user/themes/quantum/js/jquery.prettyPhoto.js"></script>
+<script src="/user/themes/quantum/js/functions.js"></script>
+<script>
+
+</script>
+
+
+</head>
+<body class="">
+  <div id="outer-container">
+    <div id="inner-container">
+    <!-- BEGIN HEADER -->
+      <div id="header">
+        <div id="logo">
+          <a href="/">
+            <img src="/user/themes/quantum/images/logo_header.jpg" alt="QUANTUMESPRESSO" />
+          </a>                  
+        </div>
+        
+
+
+
+
+
+
+
+
+  
+        <div id="nav-menu">
+             
+<ul id="menu-menu" class="sf-menu">
+    <li class="menu-item" >  
+    <a class="sf-with-ul" href="http://www.quantum-espresso.org">
+      HOME
+    </a>
+    </li>  
+                                    <li class="current_page_item menu-item ">
+                <a  href="/" >
+                    Pseudopotentials
+                </a>
+            </li>
+            
+</ul>
+
+        </div>
+      </div>
+      <!-- END OF HEADER -->
+      <!-- BEGIN CONTENT -->
+      	<div id="content-inner">
+    <div id="left-bar">
+            <div class="left-bar-content">
+        <h2>Resources</h2> 
+        <ul class="leftbar-list">
+                                  <li class="page_item page-item-36">
+              <a href="https://www.materialscloud.org/discover/sssp/table/efficiency" title="SSSP">SSSP</a>
+            </li>
+                        <li class="page_item page-item-36">
+              <a href="https://dalcorso.github.io/pslibrary/" title="PSlibrary">PSlibrary</a>
+            </li>
+                        <li class="page_item page-item-36">
+              <a href="/legacy_tables" title="clickable tables">clickable tables</a>
+            </li>
+                        <li class="page_item page-item-36">
+              <a href="unified-pseudopotential-format" title="Unified Pseudopotential Format">Unified Pseudopotential Format</a>
+            </li>
+                              </ul>                                                  
+      </div>                  
+          </div>
+                           
+    <div id="content-right" >                   
+      <div id="page-title">
+        <h1>Unified Pseudopotential Format</h1>
+      </div>
+      
+      <div class="maincontent">
+        <p><em>IMPORTANT NOTICE</em>: the UPF format is undergoing a major overhaul and will
+become a true XML format with a schema. The format described here may become
+obsolete.</p>
+<p>The Unified Pseudopotential Format (UPF), currently at v.2.0.1, is designed to store different kinds of pseudopotentials:</p>
+<ul>
+<li>Norm-conserving (NC) pseudopotentials (PP) in nonlocal form</li>
+<li>As above, in both semilocal (SL) and nonlocal (NL) form</li>
+<li>Ultrasoft (US) PP (aka Vanderbilt)</li>
+<li>Projector Augmented Waves (PAW) datasets</li>
+<li>Additional data for the GIPAW reconstruction of all-electron (AE) charge</li>
+</ul>
+<p>into a flexible file format, having a XML-like structure. The PP is stored in numerical form on a radial grid.</p>
+<h2>General structure</h2>
+<ul>
+<li>
+<p>The file is formatted, starts with a line</p>
+<pre>&lt;UPF version="2.0.1"&gt;</pre>
+<p>ends with a line</p>
+<pre>&lt;/UPF&gt;</pre>
+</li>
+<li>
+<p>The file contains “fields”. A field whose name is “FOO” is delimited by a starting line containing &lt;FOO&gt; and an ending line containing &lt;/FOO&gt;, as in the example below:</p>
+<pre>&lt;FOO&gt;
+  (content of field FOO)
+&lt;/FOO&gt;</pre>
+<p>&lt;FOO&gt; and &lt;/FOO&gt; are “delimiters” of field FOO.</p>
+</li>
+<li>
+<p>A field may have “attributes”, as in the following example:</p>
+<pre>&lt;FOO attr="bar"&gt;
+  (content of field FOO)
+&lt;/FOO&gt;</pre>
+</li>
+<li>
+<p>A field name is case-sensitive: use all caps in case of doubt!</p>
+</li>
+<li>
+<p>A field name can contain only letters and digits</p>
+</li>
+<li>
+<p>Spaces are not allowed between the &lt;&gt; and the field name</p>
+</li>
+<li>
+<p>A delimiter need not to start at the beginning of a line</p>
+</li>
+<li>
+<p>Trailing characters in the line after the &gt; of a delimiter are ignored</p>
+</li>
+<li>
+<p>Fields may contain numeric data, character strings, or other fields (“subfields”)</p>
+</li>
+<li>
+<p>Blank lines in a field are ignored.</p>
+</li>
+<li>
+<p>Comments are introduced by &lt;– and terminated by –&gt; (on the same line)</p>
+</li>
+<li>
+<p>Maximum line length is 80 characters</p>
+</li>
+<li>
+<p>Data in fields must be readable using fortran free format</p>
+</li>
+</ul>
+<h2>Defined fields</h2>
+<p>First-level fields defined in v.2.0.1 of the UPF format are:</p>
+<ul>
+<li>PP_INFO</li>
+<li>PP_HEADER</li>
+<li>PP_MESH</li>
+<li>PP_NLCC (optional)</li>
+<li>PP_LOCAL</li>
+<li>PP_NONLOCAL</li>
+<li>PP_SEMILOCAL (optional, only for norm-conserving)</li>
+<li>PP_PSWFC (optional)</li>
+<li>PP_FULL_WFC (only for PAW)</li>
+<li>PP_RHOATOM</li>
+<li>PP_PAW (only for PAW)</li>
+</ul>
+<p>PP_INFO should be the first field, but only for human readers: it is meant to contain info that would allow to generate again the pseudopotential, not data to be read. PP_HEADER must precede PP_MESH that must precede all the remaining fields.</p>
+<p>Fields that are not defined are ignored.</p>
+<h2>Field specifications</h2>
+<p>The meaning of variables is explained at the end of each field. Do loops, indicated by lines containing only dots (…), can be written with as many numbers per line as desired, within the limit of 80 characters per line.</p>
+<p>All quantities are in atomic Rydberg units: e^2=2, m=1/2, hbar=1. Lengths are in Bohr (0.529177 A), energies in Ry (13.6058 eV). Potentials are multiplied by e so they have the units of energy. Beware: some quantities computed on the radial mesh contain a multiplying <em>r</em> factor.</p>
+<h3>PP_INFO</h3>
+<p>The PP_INFO field may contain any piece of information that is deemed useful to re-generate the pseudopotential. The recommanded structure is the following:</p>
+<pre>&lt;PP_INFO&gt;
+  Generated using XXX code v.N
+  Author: Jon Doe
+  Generation date: 32Oct1976
+  Pseudopotential type: SL|NC|1/r|US|PAW
+  Element:  Tc
+  Functional:  SLA  PW   PBX  PBC
+  Suggested minimum cutoff for wavefunctions:  N Ry
+  Suggested minimum cutoff for charge density: M Ry
+  Non-/scalar-/fully-relativistic pseudopotential
+  Local potential generation info (L, rcloc, pseudization)
+  Pseudopotential is spin-orbit/contains GIPAW data
+  Valence configuration:
+  nl, pn, l, occ, Rcut, Rcut US, E pseu
+  els(1),  nns(1),  lchi(1),  oc(1),  rcut(1),  rcutus(1),  epseu(1)
+  ...
+  els(n),  nns(n),  lchi(n),  oc(n),  rcut(n),  rcutus(n),  epseu(n)
+  Generation configuration:
+     as above, including all states used in generation
+  Pseudization used: Martins-Troullier/RRKJ
+  &lt;PP_INPUTFILE&gt;
+    Copy of the input file used in generation
+  &lt;/PP_INPUTFILE&gt;
+&lt;/PP_INFO&gt;
+</pre>
+<hr />
+<p><strong>PP_HEADER</strong></p>
+<p>Structure:</p>
+<pre>
+&lt;PP\_HEADER attr1="value1" ... attrN="valueN"&gt; ... &lt;/PP\_HEADER&gt;
+     attr             value
+  generated       "Generation code"
+  author          "Author"
+  date            "Generation date"
+  comment         "Brief description"
+  element         "Chemical Symbol"
+  pseudo_type     "NC | SL | 1/r | US | PAW"
+  relativistic    "scalar | full | nonrelativistic"
+  is_ultrasoft    .F. | .T.
+  is_paw          .F. | .T.
+  is_coulomb      .F. | .T.
+  has_so          .F. | .T.
+  has_wfc         .F. | .T.
+  has_gipaw       .F. | .T.
+  paw\_as\_gipaw    .F. | .T.
+  core_correction .F. | .T.
+  functional      "dft"
+  z_valence        Zval
+  total_psenergy   etotps
+  wfc_cutoff       ecutwfc
+  rho_cutoff       ecutrho
+  l_max            lmax
+  l\_max\_rho        lmax_rho
+  l_local          lloc
+  mesh_size        mesh
+  number\_of\_wfc    nwfc
+  number\_of\_proj   nbeta
+&lt;/PP_HEADER&gt;
+</pre>
+<hr />
+<p>For cases in which different values of attributes are listed, the first one is the default one. Meaning of variables:</p>
+<ul>
+<li>
+<p>“NC” = Norm-Conserving PP, fully nonlocal form only</p>
+</li>
+<li>
+<p>“SL” = Norm-Conserving PP, nonlocal and semilocal forms available</p>
+</li>
+<li>
+<p>“US” = Ultrasoft (Vanderbilt) PP. Implies: is_uspp=.T.</p>
+</li>
+<li>
+<p>“1/r”= Coulomb potential:. Implies: is_coulomb=.T.</p>
+</li>
+<li>
+<p>“PAW”=Projector-Augmented Wave set. Implies: is_paw=.T</p>
+</li>
+<li>
+<p>has_so: fully relativistic PP with spin-orbit terms</p>
+</li>
+<li>
+<p>has_wfc: contains all-electron orbitaks in field PP_FULL_WFC</p>
+</li>
+<li>
+<p>has_gipaw: contains data for GIPAW reconstructions in PP_GIPAW</p>
+</li>
+<li>
+<p>paw_as_gipaw= ?</p>
+</li>
+<li>
+<p>nlcc: non-linear core correction is included</p>
+</li>
+<li>
+<p>“dft”: a label identifying the exchange-correlation functional</p>
+</li>
+<li>
+<p>Zval: valence charge</p>
+</li>
+<li>
+<p>etotps: total pseudo-valence energy of PP</p>
+</li>
+<li>
+<p>ecutwfc: suggested cutoff for orbital expansion into plane waves</p>
+</li>
+<li>
+<p>ecutrho: suggested cutoff for charge density expansion</p>
+</li>
+<li>
+<p>lmax: max angular: momentum component in PP</p>
+</li>
+<li>
+<p>lmax_rho: as above, in atomic charge density (PAW only)</p>
+</li>
+<li>
+<p>mesh: number of points in radial grid</p>
+</li>
+<li>
+<p>wfc: is the number of atomic (pseudo-)orbitals in section PP_PSWFC. May not coincide with the number of atomic states used in PP generation</p>
+</li>
+<li>
+<p>nbeta: number of Kleinman-Bylander projectors (“beta functions”) included in the PP (field PP_NONLOCAL)</p>
+</li>
+<li>
+<ul>
+<li>*</li>
+</ul>
+</li>
+</ul>
+<p><strong>PP_MESH</strong></p>
+<p>Structure:</p>
+<pre>
+&lt;PP_MESH dx="dx" mesh="mesh" xmin="xmin" rmax="rmax" zmesh="Zmesh"&gt;
+  &lt;PP_R&gt;
+     r(1) r(2) ...  r(mesh)
+  &lt;/PP_R&gt;
+  &lt;PP_RAB&gt;
+     rab(1) rab(2) ... rab(mesh)
+  &lt;/PP_RAB&gt;
+&lt;/PP_MESH&gt;
+</pre>
+<hr />
+<p>Meaning of the variables:</p>
+<ul>
+<li>dx, mesh, xmi, rmax, Zmesh: radial grid arameters</li>
+<li>r (1:mesh): radial grid points (a.u.). Can be one of the following:<em><br />
+r(i) = exmin+i*dx/Zmesh</em> or <em>r(i) = (exmin+i*dx-1)/Zmesh</em>, with <em>r(mesh)=rmax</em></li>
+<li>rab(mesh): factor required for discrete integration: <em>∫ f(r) dr =∑ifi rabi</em>.</li>
+</ul>
+<p><strong>PP_NLCC</strong></p>
+<pre>
+&lt;PP_NLCC&gt;
+  rho\_atc(1) rho\_atc(2) ... rho_atc(mesh)
+&lt;/PP_NLCC&gt;
+</pre>
+<hr />
+<p>Optional, needed only for PP with core corrections. Meaning of variables:</p>
+<ul>
+<li>rho_atc(mesh) : core charge for nonlinear core correction (true charge, not multiplied by 4π<em>r2</em>)</li>
+</ul>
+<p><strong>PP_SEMILOCAL</strong></p>
+<pre>
+&lt;PP_SEMILOCAL&gt;
+  &lt;PP_VNL1 L="l1" J="j1"&gt;
+       V\_1(1) V\_1(2) ... V_1(mesh)
+  &lt;/PP_VNL1 L="l" J="j"&gt;
+  &lt;PP_VNL2 L="l2" J="j2"&gt;
+       V\_2(1) V\_2(2) ... V_2(mesh)
+  &lt;/PP_VNL2 L="l" J="j"&gt;
+ ...
+&lt;/PP_SEMILOCAL&gt;
+</pre>
+<hr />
+<p>Optional, NC PP with semilocal form only. There are nbeta terms, each one containing potential V(1:mesh) for the specified value of l (also j in fully relativistic case only)</p>
+<p><strong>PP_LOCAL</strong></p>
+<pre>
+&lt;PP_LOCAL&gt;
+   vloc(1) vloc(2) ... vloc(mesh)
+&lt;/PP_LOCAL&gt;
+</pre>
+<hr />
+<p>vloc(mesh) : local potential (Ry a.u.) sampled on the radial grid</p>
+<p><strong>PP_NONLOCAL</strong></p>
+<p>Structure:</p>
+<pre>
+&lt;PP_NONLOCAL&gt;
+
+  &lt;PP_BETA&gt;
+    1 lll(1)   "Beta  L"
+    kkbeta(1)
+    beta(1,1) beta(2,1) ... beta(kkbeta(1),1)
+  &lt;/PP_BETA&gt;
+     ...
+  &lt;PP_BETA&gt;
+    nbeta lll(nbeta)   "Beta  L"
+    kkbeta(nbeta)
+    beta(1,nbeta) beta(2,nbeta) ... beta(kkbeta(nbeta),nbeta)
+  &lt;/PP_BETA&gt;
+
+  &lt;PP_DIJ&gt;
+     nd, "Number of nonzero Dij"
+do nb=1,nbeta
+   do mb=nb,nbeta
+      if (abs (dion (nb, mb) ) &gt; 0) then
+               nb  mb  dion(nb,mb)    "Q_int"
+      end if
+   end do
+end do
+  &lt;/PP_DIJ&gt;
+
+  &lt;PP_QIJ&gt;
+     nqf   "nqf"
+     &lt;PP_RINNER&gt;
+        rinner(0) rinner(1) ... rinner(2*lmax)
+     &lt;/PP_RINNER&gt;
+do nb=1,nbeta
+   do mb=nb,nbeta
+           nb  mb  lll(mb)   "i  j  (l)"
+           qqq(nb,mb)    "Q_int"
+           qfunc(1, nb,mb) qfunc(2, nb,mb) ... qfunc(mesh, nb,mb)
+     &lt;PP_QFCOEF&gt;
+           do l=0,2*lmax
+              do i=1,nqf
+                 qfcoef(i,l,nb,mb)
+              end do
+           end do
+     &lt;/PP_QFCOEF&gt;
+        end do
+     end do
+  &lt;/PP_QIJ&gt;
+
+&lt;/PP_NONLOCAL&gt;
+</pre>
+<hr />
+<ul>
+<li>lll(i): angular momentum of projector i</li>
+<li>kkbeta(i): number of mesh points for projector i (must be ≤ mesh )</li>
+<li>beta(i): projector <em>riβ(ri)</em> (note the factor <em>r</em>!)</li>
+<li>dion(i,j): the <em>Dij</em> factors of the nonlocal PP: V<em>NL = </em>∑i,j Di,j |βi&gt;&lt;βj_</li>
+<li>nqf: number of expansion coefficients for <em>qij</em> (may be zero)</li>
+<li>rinner(i): for <em>r &lt; rinner(i)</em> Q functions are pseudized (not read if nqf=0)</li>
+<li>qqq(i,j) : <em>Qij = ∫ qij(r) d3r</em></li>
+<li>qfunc: <em>r2 qij(r)</em> for <em>r &gt; rinner(i)</em></li>
+<li>qfcoef: expansion coefficients of <em>r2 qij(r)</em> for <em>r &lt; rinner(i)</em> (not read if nqf=0)</li>
+<li>Note on units: the “beta” and “dion” are defined as in Vanderbilt’s USPP code and should have Bohr^{-1/2} and Ry units, respectively. Since they enter the calculation only as (beta*D*beta), some converters may actually produce “dion” in Ry^{-1} units and “beta” in Ry*Bohr^{-1/2} units instead, as suggested by the Kleinman-Bylader transformation.</li>
+</ul>
+<p><strong>PP_PSWFC</strong></p>
+<pre>
+&lt;PP_PSWFC&gt;
+  els(1) lchi(1) oc(1)  "Wavefunction"
+  chi(1,1) chi(2,1) ...  chi(mesh,1)
+  ..........
+  els(natwfc) lchi(natwfc) oc(natwfc)  "Wavefunction"
+  chi(1,natwfc) chi(2,natwfc) ... chi(mesh,natwfc)
+&lt;/PP_PSWFC&gt;
+</pre>
+<hr />
+<ul>
+<li>chi(mesh,i): <em>χi(r)</em>, <em>i</em>-th radial atomic (pseudo-)orbital (radial part of the KS equation, multiplied by <em>r</em>)</li>
+<li>els(natwf), lchi(natwf), oc(natwf): as in PP_HEADER</li>
+</ul>
+<p><strong>PP_RHOATOM</strong></p>
+<pre>
+&lt;PP_RHOATOM&gt;
+   rho\_at(1) rho\_at(2) ... rho_at(mesh)
+&lt;/PP_RHOATOM&gt;
+</pre>
+<hr />
+<ul>
+<li>rho_at(mesh): radial atomic (pseudo-)charge .This is <em>4π r2</em> times the true charge.</li>
+</ul>
+<h2>Additional Fields</h2>
+<h3>PAW</h3>
+<p>If a PAW dataset is contained in the UPF file then the additional structure &lt;PAW&gt; is present; it contains the fields listed in the following sections.</p>
+<p><strong>PP_PAW_FORMAT_VERSION</strong></p>
+<pre>
+&lt;PP\_PAW\_FORMAT_VERSION&gt;
+  version number
+&lt;/PP\_PAW\_FORMAT_VERSION&gt;
+</pre>
+<hr />
+<p>Contains version number, current version is 0.1.</p>
+<p><strong>PP_AUGMENTATION</strong></p>
+<pre>
+&lt;PP_AUGMENTATION&gt;
+  Shape of augmentation charge:
+  BESSEL | GAUSS | PSQ | ...
+  r\_match\_augfun, irc  "augmentation max radius"
+  lmax_aug             "augmentation max angular momentum"
+  "Augmentation multipoles:"
+  nb  = 1,nbeta
+    nb1 = 1,nbeta
+      l   = 0,lmax_aug
+        augmom(nb,nb1,l)
+      enddo
+    enddo
+  enddo
+  "Augmentation functions:"
+   do l = 0,lmax_aug
+       do nb = 1,nbeta
+       do nb1 = 1,nbeta
+           if (abs(augmom(nb,nb1,l)) &gt; 0)
+              "label of the augmentation function"
+              augfun(k), k = 1, mesh
+           endif
+       enddo
+       enddo
+   enddo
+&lt;/PP_AUGMENTATION&gt;
+</pre>
+<hr />
+<p>Data required to build augmentation functions:</p>
+<ul>
+<li>BESSEL|GAUSS|PSQ|…: function used to pseudize the augmentation</li>
+<li>r_match_augfun: range beyond which all the augmentation functions are zero (a.u.)</li>
+<li>irc: index of the radial grid closer to, and greater than, r_match_augfun</li>
+<li>augmom: multipole of augmentation channel (nb,nb1); it is computed as:<br />
+<em>mlnb,nb1 =∫ dr r2 rl (χAEnb(r) χAEnb1(r) – χPSnb(r) χPSnb1(r))</em></li>
+<li>augfun: the augmentation function, it is stored only if the corresponding augmentation multipole is different from zero.</li>
+</ul>
+<p><strong>PP_AE_RHO_ATC</strong></p>
+<pre>
+&lt;PP\_AE\_RHO_ATC&gt;
+    aeccharg(k), k = 1,mesh
+&lt;/PP\_AE\_RHO_ATC&gt;
+</pre>
+<hr />
+<p>All-electron atomic density on the radial grid.</p>
+<p><strong>PP_AEWFC</strong></p>
+<pre>
+&lt;PP_AEWFC&gt;
+   do nb = 1,nbeta
+      aewfc(k, nb), k = 1,mesh
+   end do
+&lt;/PP_AEWFC&gt;
+</pre>
+<hr />
+<p>All-electron wavefunctions used for the generation of the dataset; there is one wavefunction for each beta projector.</p>
+<p><strong>PP_PSWFC_FULL</strong></p>
+<pre>
+&lt;PP\_PSWFC\_FULL&gt;
+   do nb = 1,nbeta
+      pswfc(k, nb), k = 1,mesh
+   end do
+&lt;/PP\_PSWFC\_FULL&gt;
+</pre>
+<hr />
+<p>Pseudo wavefunction used for the generation of the dataset; note that in the PP_PSWFC field only the occupied wavefunctions are stored while for PAW you need a wavefunction for each projector.</p>
+<p><strong>PP_AEVLOC</strong></p>
+<pre>
+&lt;PP_AEVLOC&gt;
+   do nb = 1,nbeta
+      aewfc(k, nb), k = 1,mesh
+   end do
+&lt;/PP_AEVLOC&gt;
+</pre>
+<hr />
+<p>All-electron local potential</p>
+<p><strong>PP_KDIFF</strong></p>
+<pre>
+&lt;PP_KDIFF&gt;
+  nb  = 1,nbeta
+    nb1 = 1,nbeta
+      kdiff(nb, nb1)
+    enddo
+  enddo
+&lt;PP_KDIFF&gt;
+</pre>
+<hr />
+<p>Kinetic energy difference between all-electron and pseudo component of each augmentation channel.</p>
+<p><strong>PP_OCCUP</strong></p>
+<pre>
+&lt;PP_OCCUP&gt;
+   do nb = 1,nbeta
+      occ(nb)
+   end do
+&lt;/PP_OCCUP&gt;
+</pre>
+<hr />
+<p>Occupations of atomic orbitals.</p>
+<p><strong>PP_GRID_RECON</strong></p>
+<pre>
+&lt;PP\_GRID\_RECON&gt;
+   "Minimal info to reconstruct the radial grid:"
+   grid%dx,   "  dx"
+   grid%xmin, "  xmin"
+   grid%rmax, "  rmax"
+   grid%zmesh,"  zmesh"
+
+   &lt;PP\_SQRT\_R&gt;
+   grid%sqr(k), k=1,mesh
+   &lt;/PP\_SQRT\_R&gt;
+&lt;/PP\_GRID\_RECON&gt;
+</pre>
+<hr />
+<p>Addition data necessary to accurately reconstruct the radial grid used for the dataset generation.</p>
+<p><strong>GIPAW</strong></p>
+<p>GIPAW additional data is necessary to reconstruct all-electron charge density using the gipaw.x program included in QE distribution.</p>
+<p><strong>PP_GIPAW_FORMAT_VERSION</strong></p>
+<pre>
+&lt;PP\_GIPAW\_FORMAT_VERSION&gt;
+  version number
+&lt;/PP\_GIPAW\_FORMAT_VERSION&gt;
+</pre>
+<hr />
+<p>Contains version number, current version is 0.1.</p>
+<p><strong>GIPAW_CORE_ORBITALS</strong></p>
+<pre>
+&lt;GIPAW\_CORE\_ORBITALS&gt;
+n\_core\_orbitals "number of core orbitals"
+    &lt;GIPAW\_CORE\_ORBITAL&gt;
+       n, l  "orbital n and l quantum numbers"
+       core_orbital(k), k = 1,mesh
+    &lt;/GIPAW\_CORE\_ORBITAL&gt;
+</pre>
+<p>Repeated for each core orbital</p>
+<pre>
+&lt;/GIPAW\_CORE\_ORBITALS&gt;
+</pre>
+<hr />
+<p>Core orbitals.</p>
+<p><strong>GIPAW_LOCAL_DATA</strong></p>
+<pre>
+&lt;GIPAW\_LOCAL\_DATA&gt;
+   &lt;GIPAW\_VLOCAL\_AE&gt;
+      vlocal_ae(k), k = 1,mesh
+   &lt;/GIPAW\_VLOCAL\_AE&gt;
+   &lt;GIPAW\_VLOCAL\_PS&gt;
+      vlocal_ps(k), k = 1,mesh
+   &lt;/GIPAW\_VLOCAL\_PS&gt;
+&lt;/GIPAW\_LOCAL\_DATA&gt;
+</pre>
+<hr />
+<p>All electron and pseudo local potentials, sampled on the radial grid.</p>
+<p><strong>GIPAW_ORBITALS</strong></p>
+<pre>
+&lt;GIPAW_ORBITALS&gt;
+   &lt;GIPAW\_AE\_ORBITAL&gt;
+         el(nb), ll(nb)
+         wfs_ae(k,nb), k = 1, mesh
+   &lt;/GIPAW\_AE\_ORBITAL&gt;
+   &lt;GIPAW\_PS\_ORBITAL&gt;
+         rcut(nb), rcutus(nb)
+         wfs_ae(k,nb), k = 1, mesh
+   &lt;/GIPAW\_PS\_ORBITAL&gt;
+  Repeated for each valence orbital.
+&lt;/GIPAW_ORBITALS&gt;
+</pre>
+<hr />
+<ul>
+<li>el: principal quantum number (0,1,2..)</li>
+<li>ll: angular momentum quantum number</li>
+<li>rcut: inner cutof radius (a.u.)</li>
+<li>rcutus: outer cutoff radius (a.u.)</li>
+<li>wfc_ae: all-electron wavefunction sample on radial grid</li>
+<li>wfc_ps: pseudo wavefunction sample on radial grid</li>
+</ul>
+<p>Last change: July 10, 2018</p>
+    </div>
+  </div>
+  
+      <!-- BEGIN FOOTER -->
+      <div id="footer">
+        <div class="footer-logo">
+               <a href="https://foundation.quantum-espresso.org">
+               <img src="/user/themes/quantum/images/logo_qef_cropped.jpg" alt="QUANTUM Espresso Foundation" /> 
+               </a>
+                       <a href="http://www.max-centre.eu/" align="right">
+		<img src="/user/themes/quantum/images/MAX_logo.png" alt="Quantum Espresso is a flaghip code of the MaX CoE">
+               </a>
+
+       </div>
+        <div class="footer-cite">
+          What I cannot <span class="red">compute</span>, I do not understand (adapted from Richard P. Feynman)<br />
+        </div>
+        <div class="footer-text">      
+          
+        </div>
+       
+      </div>            
+    <div class="footer-logo">
+    </div>
+
+                  <!-- END OF FOOTER -->                      
+    </div>
+
+  </div>
+
+</body>
+</html>

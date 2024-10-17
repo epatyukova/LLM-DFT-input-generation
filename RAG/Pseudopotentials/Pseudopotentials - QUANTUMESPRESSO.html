@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Pseudopotentials - QUANTUMESPRESSO</title>
+    <meta name="generator" content="GravCMS" />
+<meta name="description" content="Grav is an easy to use, yet powerful, open source flat-file CMS" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="robots" content="follow, all" />
+<meta name="google-site-verification" content="g4CG61y_kLfkqAsfUPkF2MefchgN00GozvDUZMeK4z8" />        <link rel="canonical" href="https://pseudopotentials.quantum-espresso.org/" />
+
+                                                    
+                                
+        <link href="/user/themes/quantum/css/style.css" type="text/css" rel="stylesheet">
+<link href="/user/themes/quantum/css/style-red.css" type="text/css" rel="stylesheet">
+<link href="/user/themes/quantum/css/superfish.css" type="text/css" rel="stylesheet">
+<link href="/user/themes/quantum/css/bootstrap.css" type="text/css" rel="stylesheet">
+<link href="/user/themes/quantum/css/prettyPhoto.css" type="text/css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:300" type="text/css" rel="stylesheet">
+<link href="/user/plugins/markdown-notices/assets/notices.css" type="text/css" rel="stylesheet">
+<link href="/user/plugins/form/assets/form-styles.css" type="text/css" rel="stylesheet">
+<link href="/user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet">
+<link href="/user/plugins/login/css/login.css" type="text/css" rel="stylesheet">
+
+
+                                                    
+                        
+        
+
+        <script src="/user/themes/quantum/js/jquery.js"></script>
+<script src="/user/plugins/mathjax/assets/js/mathjax.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/user/themes/quantum/js/jquery.cycle.all.js"></script>
+<script src="/user/themes/quantum/js/custom.js"></script>
+<script src="/user/themes/quantum/js/superfish.js"></script>
+<script src="/user/themes/quantum/js/jquery.prettyPhoto.js"></script>
+<script src="/user/themes/quantum/js/functions.js"></script>
+<script>
+var caption_h = '50px';
+
+           jQuery(document).ready(function($) {
+            slideShow($,'slideshow-container-two');
+           });
+</script>
+
+
+</head>
+<body class="">
+  <div id="outer-container">
+    <div id="inner-container">
+    <!-- BEGIN HEADER -->
+      <div id="header">
+        <div id="logo">
+          <a href="/">
+            <img src="/user/themes/quantum/images/logo_header.jpg" alt="QUANTUMESPRESSO" />
+          </a>                  
+        </div>
+        
+
+
+
+
+
+
+
+
+  
+        <div id="nav-menu">
+             
+<ul id="menu-menu" class="sf-menu">
+    <li class="menu-item" >  
+    <a class="sf-with-ul" href="http://www.quantum-espresso.org">
+      HOME
+    </a>
+    </li>  
+                                    <li class="current_page_item menu-item ">
+                <a  href="/" >
+                    Pseudopotentials
+                </a>
+            </li>
+            
+</ul>
+
+        </div>
+      </div>
+      <!-- END OF HEADER -->
+      <!-- BEGIN CONTENT -->
+      	<div id="content-inner">
+    <div id="left-bar">
+            <div class="left-bar-content">
+        <h2>Resources</h2> 
+        <ul class="leftbar-list">
+                                  <li class="page_item page-item-36">
+              <a href="https://www.materialscloud.org/discover/sssp/table/efficiency" title="SSSP">SSSP</a>
+            </li>
+                        <li class="page_item page-item-36">
+              <a href="https://dalcorso.github.io/pslibrary/" title="PSlibrary">PSlibrary</a>
+            </li>
+                        <li class="page_item page-item-36">
+              <a href="legacy_tables" title="clickable tables">clickable tables</a>
+            </li>
+                        <li class="page_item page-item-36">
+              <a href="home/unified-pseudopotential-format" title="Unified Pseudopotential Format">Unified Pseudopotential Format</a>
+            </li>
+                              </ul>                                                  
+      </div>                  
+          </div>
+                           
+    <div id="content-right" >                   
+      <div id="page-title">
+        <h1>Pseudopotentials</h1>
+      </div>
+      
+      <div class="maincontent">
+        <p><span style="font-variant: small-caps">Quantum ESPRESSO</span> currently supports
+Norm-Conserving (NC), Ultrasoft (US), and Projector-Augmented Wave (PAW) pseudopotentials (PPs).
+NC PPs are treated using their separable (Kleinman-Bylander) form.
+Some calculations (<em>e.g.</em> meta-GGA functionals, Gamma-only phonons, third-order energy derivatives,
+such as Raman cross sections and anharmonic force constants, and others) are only implemented
+with NC PPs; CP does not yet support PAW.</p>
+<p><span style="font-variant: small-caps">Quantum ESPRESSO</span> uses a <a href="/home/unified-pseudopotential-format/" title="Unified Pseudopotential Format">unified PP format</a> (UPF) for all types of PPs and still accepts a number of older formats. The directory upftools in the distribution contains utilities that convert to UPF several PP formats used by other electronic-structure codes.</p>
+<p>Several ready-to-use pseudopotential libraries are available, including the
+<a href="http://materialscloud.org/sssp">Standard Solid State PP library</a> in the
+<a href="http://materialscloud.org/">Materials Cloud</a> and <a href="https://dalcorso.github.io/pslibrary/">PSlibrary</a>.
+The former is a curated library, gathered in from different sources and validated against uniform accuracy
+end efficiency criteria; when you use it  please aknowledge also the original sources as indicated in the <a href="http://materialscloud.org/sssp/table/efficiency#ackWindow">SSSP page</a>. </p>
+<p>A few clickable PP tables, which used to be distributed with <span style="font-variant: small-caps">Quantum ESPRESSO</span> and are no longer
+maintained, are available in the menu on the left. An incomplete list of other libraries includes:</p>
+<ul>
+<li><a href="http://www.pseudo-dojo.org/index.html">PseudoDojo</a>, containing a complete set of PPs and PAWsets,
+with tests.</li>
+<li>The <a href="http://www.quantum-simulation.org/potentials/sg15_oncv/">sg15 database</a> of optimized normconserving
+Vanderbilt PPs (ONCV). Available on the quantum-simulation.org web site.
+See also Don Hamann's <a href="https://github.com/oncvpsp/ONCVPSP">GitHub project</a>.</li>
+<li><a href="http://www.mineralscloud.com/resources/repaw/index.shtml">PAW datasets for rare earths</a>, available
+on the web page of VLab at Columbia University.</li>
+<li><a href="https://www.uni-marburg.de/de/fb15/arbeitsgruppen/ag-kraus/forschung/paw_datasets_for_the_actinoids">PAW datasets for Actinoids</a>, available on the University of Marburg website</li>
+<li><a href="https://github.com/dceresoli/qe-gipaw/tree/master/pseudo">PPs for GIPAW calculations</a> can be found on
+Davide Ceresoli's GitHub repository.</li>
+<li>The <a href="http://charter.cnf.cornell.edu/">NNIN PP Vault</a> at Cornell</li>
+<li>For US PPs: <a href="https://wiki.fysik.dtu.dk/dacapo/Pseudopotential_Library">CAMPOS PP library</a></li>
+<li>The <a href="https://www.abinit.org/atomic-data-files">collection of PP data</a> of Abinit</li>
+<li>Hartwigsen-Goedecker-Hutter PPs from <a href="https://www.cp2k.org/static/potentials">CPMD</a>, by Matthias Krack</li>
+<li>The <a href="http://www.physics.rutgers.edu/gbrv/">GBRV</a> high-throughput pseudopotential page,
+by David Vanderbilt’s group.</li>
+<li>Selected norm-conserving PPs for <a href="https://yaoyi92.github.io/scan-tm-pseudopotentials.html">SCAN</a></li>
+</ul>
+<p>If nobody else has produced the PP you need, you may want to generate it, <em>e.g.</em> using the ld1.x atomic PP generation code included in the <span style="font-variant: small-caps">Quantum ESPRESSO</span> distribution and starting from one of the <a href="https://dalcorso.github.io/pslibrary/">PSlibrary</a> input files that most closeley suit your needs.</p>
+<p>An incomplete list of other PP generation codes includes:</p>
+<ul>
+<li><a href="http://www.wfu.edu/~natalie/papers/pwpaw/man.html">Natalie Holzwarth’s atompaw code</a> (PAWsets)</li>
+<li><a href="http://www.physics.rutgers.edu/~dhv/uspp/index.html">David Vanderbilt’s code</a> (UltraSoft PPs, includes most generation data)</li>
+<li><a href="http://opium.sourceforge.net/">OPIUM</a> (Norm-Conserving PPs)</li>
+<li><a href="http://www.tddft.org/programs/APE/">APE: Atomic Pseudopotentials Engine</a> (Norm-Conserving PPs)</li>
+<li><a href="http://www.mat-simresearch.com/">Don Hamann’s onsvpsp code</a> (Norm-Conserving, fully relativistic PPs), see <a href="http://www.mail-archive.com/pw_forum@pwscf.org/msg25170.html">this message</a> for instructions</li>
+<li><a href="http://www.fhi-berlin.mpg.de/th/fhi98md/fhi98PP">The Fritz Haber code</a> (Norm-Conserving PPs)</li>
+<li><a href="http://bohr.inesc-mn.pt/~jlm/pseudo.html">José-Luís Martins’ code</a> (Norm-Conserving PPs)</li>
+</ul>
+<p>All the above codes but the last produce PPs in one of the supported formats. The PPs produced by the last one can be converted to UPF using the utilities contained in the directory upflib of the <span style="font-variant: small-caps">Quantum ESPRESSO</span> distribution.</p>
+<p><strong>Remember:</strong></p>
+<ul>
+<li><strong><em>Always test the PPs on simple test systems before proceeding to serious calculations.</em></strong></li>
+<li><strong><em>If you use PPs generated by others, please give full credit to the authors. If you are unsure how to
+proceed, see <a href="https://materialscloud.org/discover/sssp/table/efficiency#ackWindow">this page</a>
+for a few examples of of polite acknowledgment).</em></strong> </li>
+</ul>
+<p><em>Last modified October 28, 2020</em></p>
+    </div>
+  </div>
+  
+      <!-- BEGIN FOOTER -->
+      <div id="footer">
+        <div class="footer-logo">
+               <a href="https://foundation.quantum-espresso.org">
+               <img src="/user/themes/quantum/images/logo_qef_cropped.jpg" alt="QUANTUM Espresso Foundation" /> 
+               </a>
+                       <a href="http://www.max-centre.eu/" align="right">
+		<img src="/user/themes/quantum/images/MAX_logo.png" alt="Quantum Espresso is a flaghip code of the MaX CoE">
+               </a>
+
+       </div>
+        <div class="footer-cite">
+          What I cannot <span class="red">compute</span>, I do not understand (adapted from Richard P. Feynman)<br />
+        </div>
+        <div class="footer-text">      
+          
+        </div>
+       
+      </div>            
+    <div class="footer-logo">
+    </div>
+
+                  <!-- END OF FOOTER -->                      
+    </div>
+
+  </div>
+
+</body>
+</html>
