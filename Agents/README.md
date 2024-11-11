@@ -15,3 +15,7 @@ This is a list of relevant agents which I found (to learn what kind of solutions
 5. **AIOS** (https://arxiv.org/html/2403.16971v2): LLM Agent Operating System and **MemGPT** (https://arxiv.org/abs/2310.08560): Towards LLMs as Operating Systems (implemented as a package https://github.com/letta-ai/letta)
 6. **AgentCoder** (https://arxiv.org/html/2312.13010v2)
 7. **MapCoder** (https://github.com/Md-Ashraful-Pramanik/MapCoder)
+8. **CodeAgent** (https://arxiv.org/pdf/2401.07339)
+<p align="center">
+  <img src="figures/CodeAgent.png" width="500"/>
+</p>
