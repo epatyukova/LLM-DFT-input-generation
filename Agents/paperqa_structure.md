@@ -1,0 +1,43 @@
+## Structure of PaperQA
+
+<ul>
+  <li>core.py</li>
+  <li>docs.py</li>
+  <li>litqa.py</li>
+  <li>llms.py</li>
+  <li>paths.py</li>
+  <li>prompts.py</li>
+  <li>rate_limiter.py</li>
+  <li>readers.py</li>
+  <li>settings.py</li>
+  <li>types.py</li>
+  <li>utils.py</li>
+  <li>py.typed</li>
+  <li>agents</li>
+  <ul>
+    <li>main.py</li>
+    <li>models.py</li>
+    <li>search.py</li>
+    <li>tasks.py</li>
+    <li>tools.py</li>
+    <li>helpers.py</li>
+    <li>env.py</li>
+  </ul>
+  <li>clients</li>
+  <ul>
+    <li>client_models.py</li>
+    <li>crossref.py</li>
+    <li>exceptions.py</li>
+    <li>journal_quality.py</li>
+    <li>openalex.py</li>
+    <li>retractions.py</li>
+    <li>semantic_scholar.py</li>
+    <li>unpaywall.py</li>
+    <li>client_data</li>
+  </ul>
+  <li>configs</li>
+  <li>contrib</li>
+  <ul>
+    <li>zotero.py</li>
+  </ul>
+</ul>
