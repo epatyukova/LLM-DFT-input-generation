@@ -36,8 +36,8 @@
     <li>client_data</li>
   </ul>
   <li>configs</li>
-  <li>contrib</li>
+  <li>**contrib**</li>
   <ul>
-    <li>zotero.py</li>
+    <li>**zotero.py**: This module gets PDF files from the user's Zotero library</li>
   </ul>
 </ul>
