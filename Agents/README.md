@@ -8,3 +8,4 @@ This is a list of relevant agents which I found (to learn what kind of solutions
 2. **PaperQA2** (https://github.com/Future-House/paper-qa):
 3. **STORM** (https://github.com/stanford-oval/storm):
 4. **ReAct** (https://arxiv.org/abs/2210.03629, implemented for example here https://github.com/langchain-ai/react-agent)
+5. **AIOS** (https://arxiv.org/html/2403.16971v2): LLM Agent Operating System and **MemGPT** (https://arxiv.org/abs/2310.08560): Towards LLMs as Operating Systems (implemented as a package https://github.com/letta-ai/letta)
