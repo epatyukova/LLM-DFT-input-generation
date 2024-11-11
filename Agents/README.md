@@ -7,7 +7,7 @@ This is a list of relevant agents which I found (to learn what kind of solutions
 
 2. **PaperQA2** (https://github.com/Future-House/paper-qa):
 <p align="center">
-  <img src="figures/PaperQA2.jpg" width="500"/>
+  <img src="figures/PaperQA2.jpg" width="600"/>
 </p>
 
 3. **STORM** (https://github.com/stanford-oval/storm):
