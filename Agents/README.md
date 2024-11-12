@@ -14,6 +14,9 @@ This is a list of relevant agents which I found (to learn what kind of solutions
 4. **ReAct** (https://arxiv.org/abs/2210.03629, implemented for example here https://github.com/langchain-ai/react-agent)
 5. **AIOS** (https://arxiv.org/html/2403.16971v2): LLM Agent Operating System and **MemGPT** (https://arxiv.org/abs/2310.08560): Towards LLMs as Operating Systems (implemented as a package https://github.com/letta-ai/letta)
 6. **AgentCoder** (https://arxiv.org/html/2312.13010v2)
+<p align="center">
+  <img src="figures/AgentCoder.jpg" width="600"/>
+</p>
 7. **MapCoder** (https://github.com/Md-Ashraful-Pramanik/MapCoder)
 8. **CodeAgent** (https://arxiv.org/pdf/2401.07339)
 <p align="center">
