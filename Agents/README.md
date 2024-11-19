@@ -24,4 +24,8 @@ This is a list of relevant agents which I found (to learn what kind of solutions
   <img src="figures/CodeAgent.png" width="500"/>
 </p>
 
-8. **LLaMP** (https://github.com/chiang-yuan/llamp)
+9. **LLaMP** (https://github.com/chiang-yuan/llamp)
+<p align="center">
+  <img src="figures/LLaMP.png" width="800"/>
+</p>
+
