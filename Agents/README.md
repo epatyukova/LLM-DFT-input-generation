@@ -22,3 +22,4 @@ This is a list of relevant agents which I found (to learn what kind of solutions
 <p align="center">
   <img src="figures/CodeAgent.png" width="500"/>
 </p>
+8. **LLaMP** (https://github.com/chiang-yuan/llamp)
