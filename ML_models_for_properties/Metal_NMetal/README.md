@@ -1,4 +1,4 @@
-##Data sources and description: <br>
+<b>Data sources and description</b>: <br>
 
 <ul>
   <li> The notebook MP_download_bandgap allows to download the latest available version of band gaps from MP 
