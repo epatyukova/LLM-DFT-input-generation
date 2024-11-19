@@ -17,9 +17,11 @@ This is a list of relevant agents which I found (to learn what kind of solutions
 <p align="center">
   <img src="figures/AgentCoder.jpg" width="600"/>
 </p>
+
 7. **MapCoder** (https://github.com/Md-Ashraful-Pramanik/MapCoder)
 8. **CodeAgent** (https://arxiv.org/pdf/2401.07339)
 <p align="center">
   <img src="figures/CodeAgent.png" width="500"/>
 </p>
+
 8. **LLaMP** (https://github.com/chiang-yuan/llamp)
