@@ -12,4 +12,5 @@
   <li>The paper benchmarking different functionals with respect to band gap predictions https://pubs.acs.org/doi/pdf/10.1021/acs.jctc.9b00322. Corresponding dataset is ct9b00322_si_002</li>
   <li>The dataset of HSE band gaps calculated in the paper https://journals.aps.org/prmaterials/pdf/10.1103/PhysRevMaterials.8.043803 is given in a file to_publish_HSE_full_data.xlsx</li>
   <li>Also in principle there are datasets in AFLOW and OQMD</li>
+  <li>Note the paper https://pubs.acs.org/doi/10.1021/acs.jcim.3c01897</li>
 </ul>
