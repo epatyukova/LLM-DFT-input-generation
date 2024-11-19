@@ -6,5 +6,5 @@
     </li>
   <li>There is also Jarvis 3d and 2d DFT datasets, which have band gaps calculated with different functionals</li>
   <li>Small experimental band gap dataset from matbench</li>
-  <li>The band gap dataset automatically extracted from papers. The reference: https://www.nature.com/articles/s41597-022-01294-6</li>
+  <li>The band gap dataset automatically extracted from papers (Bandgap_database_v2). The reference: https://www.nature.com/articles/s41597-022-01294-6</li>
 </ul>
