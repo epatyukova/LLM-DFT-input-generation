@@ -1,7 +1,7 @@
 <b>Data sources and description</b>: <br>
 
 <ul>
-  <li> The notebook MP_download_bandgap allows to download the latest available version of band gaps from MP 
+  <li>The notebook MP_download_bandgap allows to download the latest available version of band gaps from MP 
     together with magnetic properties and structures. Calculation methodology https://docs.materialsproject.org/methodology/materials-methodology/electronic-structure 
     </li>
   <li>There is also Jarvis 3d and 2d DFT datasets, which have band gaps calculated with different functionals</li>
@@ -11,4 +11,5 @@
   <li>Band gaps calculated with HSE functional from the paper https://www.nature.com/articles/s41597-020-00723-8</li>
   <li>The paper benchmarking different functionals with respect to band gap predictions https://pubs.acs.org/doi/pdf/10.1021/acs.jctc.9b00322. Corresponding dataset is ct9b00322_si_002</li>
   <li>The dataset of HSE band gaps calculated in the paper https://journals.aps.org/prmaterials/pdf/10.1103/PhysRevMaterials.8.043803 is given in a file to_publish_HSE_full_data.xlsx</li>
+  <li>Also in principle there are datasets in AFLOW and OQMD</li>
 </ul>
