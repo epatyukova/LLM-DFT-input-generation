@@ -1,0 +1,21 @@
+{
+    "train_path": "data/composition/train.csv",
+    "val_path": "data/composition/val.csv",
+    "test_path": "data/composition/test.csv",
+    "out_dims": 3,
+    "d_model": 512,
+    "out_hidden": [1024, 512, 256, 128],
+    "N": 3,
+    "heads": 4,
+    "classification": false,
+    "batch_size": 256,
+    "fudge": 0.02,
+    "random_seed": 29,
+    "swa_epoch_start": 0.05,
+    "swa_lrs": 0.01,
+    "base_lr": 0.005,
+    "max_lr": 0.01,
+    "schedule": "CyclicLR",
+    "patience": 20,
+    "num_workers": 1
+}
