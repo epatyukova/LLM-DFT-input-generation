@@ -8,4 +8,8 @@ Here some models for predicting kspacing from composition are collected. At the 
 ## CrabNet
 
 
-## CrabNet 
+## CrabNet transfer from formation energy per one atom
+
+## CrabNet transfer from total energy per one atom
+
+## CrabNet transfer from density
