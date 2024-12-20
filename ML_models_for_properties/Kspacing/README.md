@@ -18,4 +18,4 @@ Here some models for predicting kspacing from composition are collected. At the 
 
 All these models have approximately the same performance. And we would like to have something better.
 
-Some trained models can be found in the goldilocks folder on sharepoint
+Best trained models can be found in the goldilocks folder on sharepoint
