@@ -4,14 +4,14 @@ Here some models for predicting kspacing from composition are collected. At the 
 
 ## Random Forrest
 <p align="center">
-  <img src="figures/RF-composition.png" width="300"/>
+  <img src="figures/RF_composition.png" width="300"/>
 </p>
 
 R2=0.524, MAE=10.626
 
 ## CrabNet
 <p align="center">
-  <img src="figures/CrabNet-composition.png" width="300"/>
+  <img src="figures/CrabNet_composition.png" width="300"/>
 </p>
 
 R2=0.500, MAE=10.534
