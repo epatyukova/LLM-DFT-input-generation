@@ -3,10 +3,18 @@
 Here some models for predicting kspacing from composition are collected. At the moment kspacing data are taken from Jarvis 3d_dft dataset.
 
 ## Random Forrest
+<p align="center">
+  <img src="figures/RF-composition.png" width="300"/>
+</p>
 
+R2=0.524, MAE=10.626
 
 ## CrabNet
+<p align="center">
+  <img src="figures/CrabNet-composition.png" width="300"/>
+</p>
 
+R2=0.500, MAE=10.534
 
 ## CrabNet transfer from formation energy per one atom
 
