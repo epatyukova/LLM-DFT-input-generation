@@ -25,13 +25,20 @@ For pre-training on formation energy I took the dataset from Matbench (to additi
   <img src="figures/CrabNet_form_energy.png" width="500"/>
 </p>
 
-For transfer learning I tried 2 approaches: (1) tuning all weights of CrabNet, (2) tuning only the weights of ResNet part. In both cases performance is the same as with no pre-training.
+For transfer learning, I tried 2 approaches: (1) tuning all weights of CrabNet, (2) tuning only the weights of ResNet part. In both cases performance is the same as with no pre-training.
 
 <p align="center">
   <img src="figures/CrabNet_transfer_form_energy.png" width="500"/>
 </p>
 
 ## CrabNet transfer from density
+The density model was trained on the most recent MP data. Duplicates were removed. 
+
+<p align="center">
+  <img src="figures/CrabNet_density.png" width="500"/>
+</p>
+
+I tried the same approaches to transfer learning as with formation energy, and results were the same.
 
 ## Conclusion
 
