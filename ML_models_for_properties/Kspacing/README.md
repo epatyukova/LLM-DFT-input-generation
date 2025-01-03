@@ -45,3 +45,5 @@ I tried the same approaches to transfer learning as with formation energy, and r
 All these models have approximately the same performance. And we would like to have something better.
 
 Best trained models can be found in the goldilocks folder on sharepoint
+
+It is also interesting to keep in mind that the jarvis leadearboard in terms of predicting this parameter can be found here https://pages.nist.gov/jarvis_leaderboard/AI/SinglePropertyPrediction/dft_3d_kpoint_length_unit/ . Interestingly, the best model shows MAE = 9.0 and the model is a matminer_xgboost (it is not clear which features they use, most probably just unit cell lengths, angels, space group number, and the unit cell volume).
