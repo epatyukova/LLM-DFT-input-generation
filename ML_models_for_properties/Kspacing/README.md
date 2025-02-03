@@ -40,6 +40,14 @@ The density model was trained on the most recent MP data. Duplicates were remove
 
 I tried the same approaches to transfer learning as with formation energy, and results were the same.
 
+## CGCNN structure-based model
+
+<p align="center">
+  <img src="figures/CGCNN_structure.png" width="500"/>
+</p>
+
+This is so far the best model r2=0.6157455690368215, MAE=8.250450223684311
+
 ## Conclusion
 
 All these models have approximately the same performance. And we would like to have something better.
